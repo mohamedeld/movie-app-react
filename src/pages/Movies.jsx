@@ -7,13 +7,20 @@ import Paginate from "../components/Paginate";
 
 export default function Movies() {
     const [moviesDate,setMoviesData] = useState([]);
+    const [pages,setPages] = useState(0)
     const getAllMovies = ()=>{
         axiosInstance.get("/3/movie/popular?api_key=21c647fe89830dd907b4672aed732997",{
-        }).then(res=> setMoviesData(res.data.results)).catch(err=> console.log(err));
+        }).then(res=> {
+            setMoviesData(res.data.results);
+            setPages(res.data.total_pages);
+        }).catch(err=> console.log(err));
     }
     const getPage = (page)=>{
         axiosInstance.get(`/3/movie/popular?api_key=21c647fe89830dd907b4672aed732997&page=${page}`,{
-        }).then(res=> setMoviesData(res.data.results)).catch(err=> console.log(err));
+        }).then(res=> {
+            setMoviesData(res.data.results);
+            setPages(res.data.total_pages);
+        }).catch(err=> console.log(err));
     }
     useEffect(()=>{
         getAllMovies();
@@ -22,7 +29,10 @@ export default function Movies() {
         if(word === ""){
             getAllMovies();
         }else{
-            axiosInstance.get(`/3/search/movie?api_key=21c647fe89830dd907b4672aed732997&query=${word}`).then(res=> setMoviesData(res.data.results)).catch(err=> console.log(err));
+            axiosInstance.get(`/3/search/movie?api_key=21c647fe89830dd907b4672aed732997&query=${word}`).then(res=> {
+                setMoviesData(res.data.results);
+                setPages(res.data.total_pages);
+            }).catch(err=> console.log(err));
 
         }
       }
@@ -38,7 +48,7 @@ export default function Movies() {
             </div>  ))
        }
        </div>
-       <Paginate getPage = {getPage}/>
+       <Paginate getPage = {getPage} pages={pages}/>
     </div>
     </>
   )

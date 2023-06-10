@@ -1,11 +1,11 @@
 import ReactPaginate from 'react-paginate';
 
 
-export default function Paginate({getPage}) {
+export default function Paginate({getPage,pages}) {
     const handlePageClick =(data)=>{
         getPage(data.selected+1)
     }
-    const pageCount=500;
+    
   return (
     <>
       <ReactPaginate
@@ -15,7 +15,7 @@ export default function Paginate({getPage}) {
         pageRangeDisplayed={5}
         marginPagesDisplayed={2}
 
-        pageCount={pageCount}
+        pageCount={pages}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
         containerClassName={'pagination justify-content-center p-3'}

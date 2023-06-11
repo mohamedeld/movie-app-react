@@ -3,6 +3,7 @@ import Movies from "../pages/Movies";
 import MoviesDetails from "../pages/MoviesDetails";
 import PageNotFound from "../pages/PageNotFound";
 import Pricing from "../pages/Pricing";
+import FavoritePage from "../pages/FavoritePage";
 
 export default function MovieRouter() {
   return (
@@ -11,6 +12,7 @@ export default function MovieRouter() {
             <Route path="/movies" element={<Movies/>}/>
             <Route path="/movies/:id" element={<MoviesDetails/>}/>
             <Route path="/pricing" element={<Pricing/>}/>
+            <Route path="/favorite" element={<FavoritePage/>}/>
             <Route path="*" element={<PageNotFound/>}/>
         </Routes>
     </>

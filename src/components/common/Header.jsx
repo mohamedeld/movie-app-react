@@ -40,6 +40,11 @@ export default function Header({ handleSearch }) {
                   Pricing
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link to="/favorite" className={`nav-link ${location.pathname === '/favorite'?'active':""}`}>
+                Favorite
+                </Link>
+              </li>
             </ul>
             <div className="d-flex justify-content-start align-items-center">
               <input

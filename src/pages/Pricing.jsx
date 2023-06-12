@@ -1,6 +1,10 @@
+import Header from "../components/common/header";
 
 export default function Pricing() {
   return (
-    <div>Pricing</div>
+    <>
+      <Header/>
+      <div>Pricing</div>
+    </>
   )
 }

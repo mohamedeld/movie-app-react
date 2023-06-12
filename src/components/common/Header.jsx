@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { ContextSwitcherLang } from "../contextSwitcherLang/contextSwitcherLang";
 
 export default function Header({ handleSearch }) {
     const location = useLocation();
@@ -44,6 +45,14 @@ export default function Header({ handleSearch }) {
                 <Link to="/favorite" className={`nav-link ${location.pathname === '/favorite'?'active':""}`}>
                 Favorite
                 </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/form" className={`nav-link ${location.pathname === '/form'?'active':""}`}>
+                Form
+                </Link>
+              </li>
+              <li className="nav-item">
+                <ContextSwitcherLang/>
               </li>
             </ul>
             <div className="d-flex justify-content-start align-items-center">

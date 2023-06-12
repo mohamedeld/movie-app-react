@@ -5,7 +5,7 @@ import { toggleFavourite } from "../store/Slices/star";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-export default function MovieCard({movie,key}) {
+export default function MovieCard({movie}) {
     const imageUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
     const favorites = useSelector((state)=>{
       
@@ -25,7 +25,7 @@ export default function MovieCard({movie,key}) {
 
   return (
     <>
-        <div className="card" key={key}>
+        <div className="card" key={movie.id}>
             <img className="card-img-top" src={imageUrl} alt="Card image cap"/>
             <div className="card-body">
                 <button onClick={handleToggle} style={{backgroundColor:isFavorite?"yellow":"transparent"}}><FontAwesomeIcon icon={faStar} /></button>

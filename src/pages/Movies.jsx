@@ -5,9 +5,14 @@ import MovieCard from "./MovieCard";
 import Header from "../components/common/header";
 import Paginate from "../components/Paginate";
 
+
+
 export default function Movies() {
     const [moviesDate,setMoviesData] = useState([]);
-    const [pages,setPages] = useState(0)
+    const [pages,setPages] = useState(0);
+
+    
+
     const getAllMovies = ()=>{
         axiosInstance.get("/3/movie/popular?api_key=21c647fe89830dd907b4672aed732997",{
         }).then(res=> {
@@ -43,8 +48,8 @@ export default function Movies() {
      <div className="container">
         <div className="row py-4">
        {moviesDate.map(movie=>(
-            <div className="col-md-4">
-            <MovieCard movie={movie} key={movie.id}/>
+            <div className="col-md-4" key={movie.id}>
+            <MovieCard movie={movie}/>
             </div>  ))
        }
        </div>

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
+import Header from "../components/common/header";
 
 export default function FavoritePage(){
     const favorites = useSelector((state) =>{
@@ -7,7 +8,8 @@ export default function FavoritePage(){
     });
     
     return (
-        <>
+        <>  
+        <Header/>
                 <div className="container">
                     <div className="row">
             {
